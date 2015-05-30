@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用传统方式为ＩＥ浏览器绑定事件</title>
+	<script src="tool.js"></script>
+<script type="text/javascript">
+/*  function addEvent(obj,type,fn)
+  {
+  	if(obj.addEventListener){
+  		obj.addEventListener(type, fn);
+  	}else if(obj.attachEvent)
+  	{
+      obj.attachEvent('on'+type,fn,false);
+  	}
+  }
+function f1()
+{
+	alert(1);
+}
+function f2()
+{
+	alert(2);
+}
+function f3()
+{
+	alert(3);
+}
+window.onload = function()
+{
+	var btn1 = document.getElementById('btn1');
+	addEvent(btn1,'click',f1);
+	addEvent(btn1,'click',f1);
+	addEvent(btn1,'click',f1);
+
+}
+*/
+function f1 (e) {
+	console.log(e.clientX);
+}
+function f2 () {
+    console.log(2);
+}
+function f3()
+{
+	console.log(this.nodeName);
+}
+window.onload = function(){
+    var btn1 = document.getElementById('btn1');
+	/*
+	addEvent(btn1,'click',f1);
+	addEvent(btn1,'click',f2);
+	addEvent(btn1,'click',f3);
+	//addEvent(btn1,'click',f1);
+	//addEvent(btn1,'click',f3);
+	removeEvent(btn1,'click',f1);
+	removeEvent(btn1,'click',f2);
+	*/
+var events = new Events();
+//events.addEvent(btn1,'click',f1);
+//events.addEvent(btn1,'click',f2);
+//events.removeEvent(btn1,'click',f1);
+events.addEvent(btn1,'click',function(e){
+
+	var x = events.getEvent(e);
+	console.log(2);
+	events.stopPropagation(x);
+	events.preventDefault(x);
+});
+document.onclick = function(){
+	console.log('DOM结点被点击了');
+}
+
+}
+
+
+
+</script>
+</head>
+<body>
+	<!--<a href="http://baidu.com" id="btn1">进行测试</a>-->
+	<input type="button" value="阻止冒泡" id="btn1">
+</body>
+</html>

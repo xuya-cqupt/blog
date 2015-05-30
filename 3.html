@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+	}
+#div1{
+	width:200px;
+	height:200px;
+	background:red;
+	position:absolute;
+	left:20px;
+	top:20px;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+#div2{
+	width:300px;
+	height:300px;
+	border:1px solid;
+}
+#div3{
+	position:absolute;
+	top:300px;
+	background:green;
+	width:200px;
+	height:200px;
+
+}
+	</style>
+	<script src="js/base3.js"></script>
+	<script src="js/tool2.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#div1").click(function(){
+		$("#div1").animate({
+           attr:'x',
+           target:300,
+           t:100,
+           type:1,
+           fn:function(){
+           	$("#div1").animate({
+           		attr:'width',
+           		target:'100',
+           		t:200,
+           		fn:function(){
+           			$("#div1").animate({
+           				attr:'opacity',
+           				target:'10',
+           				t:300
+           			});
+           		}
+           	});
+           }
+		});//animate  end
+	});//click  end
+$("#div3").click(function(){
+	$("#div3").animate({
+		mul:{
+		'x':400,
+		'w':500,
+		'h':50,
+		'o':50
+		
+	},
+	type:1,
+	t:200,
+	fn:function(){
+		$("#div3").animate({
+			attr:'width',
+			target:400,
+			type:1,
+			t:200
+		
+		});
+	}
+   });
+});
+	})//fun结束
+</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>

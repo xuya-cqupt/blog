@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>理解javascript库</title>
+	<style type="text/css">
+#div1{
+	font-size: 20px;
+	background:pink;
+	width:200px;
+
+}
+.a{
+	color:blue;height:350px;
+}
+.b{
+	
+	border:2px solid;
+}
+	</style>
+	<script src="base.js"></script>
+    <script type="text/javascript">
+window.onload = function()
+{
+	var div1 = $().getId('div1');
+	//console.log(div1);
+	//div1.css('color','red');
+	//console.log(div1.css('color'));
+	//console.log(div1.css('fontSize'));
+	//console.log(div1.css('backgroundColor'));
+	//$().addRule(0,'background:green',2);
+	div1.addClass('a b');
+	div1.removeClass('b');
+	//$().addRule(0,'body','background:green;',1);
+	//$().removeRule(0,2);
+	$().getTagName('p').getElement(1).css('background','blue');
+	div1.click(function()
+		{
+         $(this).html('修改里面的内容');
+		});
+	$().getTagName('p').getElement(1).hover(function(){
+		div1.css('background','green');
+	},function(){
+		div1.css('background','orange');
+	});
+}
+
+    </script>
+</head>
+<body>
+	<div id="div1">这是一个块</div>	
+	<p >111111</p>
+	<p>22222222</p>
+	<p>33333333</p>
+</body>
+</html>
+
+

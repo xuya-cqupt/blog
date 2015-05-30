@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM加载</title>
+	<script type="text/javascript">
+	document.write('<script id=\"ie_loaded\" defer=\"defer\" src=\"javascript:void\(0\)\"><\/script>');
+	var ie_loaded = document.getElementById('ie_loaded');
+	ie_loaded.onreadystatechange = function(){
+	//	alert(this.readyState);
+	if(this.readyState=='complete'){
+     var box = document.getElementById('box');
+     alert(box.innerHTML);
+
+	}//if结束
+}//ready结束
+//PS:有效，DOM加载完毕后执行了结点操作，并且后面才加载完毕图片
+//PS：缺陷，如果有iframe标签，那么这种方法就会等待iframe里面的内容加载完毕后执行
+	
+//非IE的现代DOM加载事件没有缺陷
+//使用IE中的doScroll
+var timer = null;
+timer = setInterval(function(){
+	try{
+  document.documentElement.doScroll('left');
+  //后继续进行相应的DOM操作
+	}catch(e){}
+});
+
+	</script>
+</head>
+<body>
+	<div id="box">box</div>
+</body>
+</html>

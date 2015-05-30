@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link  rel="stylesheet"  href="css/index.css"/>
+</head>
+<body>
+	<!--header-->
+<div id="header_bg">
+	<div id="header">
+		<div class="logo"><img src="images/logo.gif" ></div>
+		<div class="member">个人中心
+			<ul class="member_ul">
+				<li><a href="###">发文</a></li>
+				<li><a href="###">换肤</a></li>
+				<li><a href="###">帮助</a></li>
+				<li><a href="###">退出</a></li>
+			</ul>
+		</div>
+		<div class="login">登录</div>
+		<div class="register">注册</div>
+    </div>
+</div>
+	<!--header  end-->
+	<!--nav_bar-->
+   <div id="nav">
+   <!--多一个无内容列表的目的是black列表里当移入另一个选项时会，会造成第一个离开和第二个的进入事件同时触发而造成冲突-->
+     <ul class="about">
+     	<li></li>
+     	<li></li>
+     	<li></li>
+     	<li></li>
+     	<li></li>
+     </ul>
+     <ul class="black">
+     	<li>首页</li>
+     	<li>博文列表</li>
+     	<li>精彩相册</li>
+     	<li>动感音乐</li>
+     	<li>关于我</li>
+     </ul>
+     <div class="nav_bg">
+     	<ul class="white">
+          <li>首页</li>
+          <li>博文列表</li>
+          <li>精彩相册</li>
+          <li>动感音乐</li>
+          <li>关于我</li>
+     	</ul>
+     </div>
+
+   </div>
+	<!--nav_bar   end-->
+
+   <!--login-->
+   <div id="login">
+	   	<h2>网站登录<img src="images/close.png" class="login-close"></h2>
+	   	<form>
+	   	  <table>
+	   	  	<tr><td>账号</td><td>:</td><td><input type="text" class="number"></td></tr>
+	   	  	<tr><td>密码</td><td>:</td><td><input type="text" class="password"></td></tr>
+	   	  </table>
+	   	  <div><button>登录</button></div>
+	   	  <p class="login-p"><a href="##">注册新用户</a>|<a href="##">忘记密码？</a></p>
+	   	</form>
+   </div>
+   <!--login end-->
+   <!--screen遮罩窗-->
+   <div id="screen-lock"></div>
+	<script src="js/base3.js"></script>
+	<script src="js/tool2.js"></script>
+	<script src="js/base_drag.js"></script>
+	<script src="js/index3.js"></script>
+  <script type="text/javascript">
+window.onload = function(){
+  //console.log(document.documentElement.clientHeight);
+}
+  </script>
+</body>
+</html>
